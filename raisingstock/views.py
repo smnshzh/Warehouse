@@ -101,8 +101,13 @@ def delete_buy_order(request):
 @login_required (login_url='login')
 @can_show_confirmed_buy
 def show_confirmed_buy(request):
+    user = request.user
+    access = Access.objects.get (user=user)
+    warehouse = [ware for ware in access.warehouse.all ( )]
     confirmed = 1
-    confirm_buy = Order.objects.filter (checked_out_2=True, orderkinde_id=1).order_by ("fianl_code")
+    confirm_buy = Order.objects.filter (checked_out_2=True,
+                                        orderkinde_id=1,
+                                        warhouse__in=warehouse).order_by ("fianl_code")
 
     context = {
         "title": "Views Of Confirmed Buy",

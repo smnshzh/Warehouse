@@ -20,27 +20,29 @@
     <p style="border: 1px groove black;margin-bottom: 3%"></p>
     <div style="margin-bottom: 5%"><span style="margin-right: 10%">Name : {{ order.accountside.name }}</span>
         <span style="margin-right: 10%">Tel : {{ order.accountside.telephonnumber }}</span>
+        {% if order.orderkind.id == 2 %}
         <span style="margin-right: 10%"> Visitor : {{ order.visitor.first_name }} {{ order.visitor.last_name }}</span>
         <span style="margin-right: 10%">Deliver : {{ order.shipment.distributeur.first_name }} {{ order.shipment.distributeur.last_name }}</span>
         <span>Shipment code : {{ order.shipment.code }}</span>
+        {% endif %}
     </div>
     <p style="border: 1px groove black;margin-bottom: 3%"></p>
     <div style="margin-bottom: 3%">Address : {{ order.accountside.region.city }} -
         {{ order.accountside.region.local_name }} - {{ order.accountside.address }}</div>
- <p style="border: 1px groove black;margin-bottom: 3%"></p>
+    <p style="border: 1px groove black;margin-bottom: 3%"></p>
 
 
-    <table style="border: 1px groove black; width: 100%;text-align: center">
-    <thead>
-    <tr style="border: 1px groove black;">
-        <th style="border: 1px groove black;">row</th>
-        <th style="border: 1px groove black;">code</th>
-        <th style="border: 1px groove black;">Name</th>
-        <th style="border: 1px groove black;">Box</th>
-        <th style="border: 1px groove black;">Quantity(box)</th>
-        <th style="border: 1px groove black;">Quantity(small)</th>
-        <th style="border: 1px groove black;">Price</th>
-        <th style="border: 1px groove black;">Off</th>
+    <table class="table-striped" style="border: 1px groove black; width: 100%;text-align: center">
+        <thead>
+        <tr style="border: 1px groove black;">
+            <th style="border: 1px groove black;">row</th>
+            <th style="border: 1px groove black;">code</th>
+            <th style="border: 1px groove black;">Name</th>
+            <th style="border: 1px groove black;">Box</th>
+            <th style="border: 1px groove black;">Quantity(box)</th>
+            <th style="border: 1px groove black;">Quantity(small)</th>
+            <th style="border: 1px groove black;">Price</th>
+            <th style="border: 1px groove black;">Off</th>
         <th style="border: 1px groove black;">VAT</th>
         <th style="border: 1px groove black;">Total Price</th>
     </tr>

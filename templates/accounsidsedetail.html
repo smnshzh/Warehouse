@@ -53,7 +53,7 @@
             <tr>
 
 
-                <td><a href="">{{ person.name }}</a></td>
+                <td><a href="{% url 'detailed_account_report' person.id %}" target="_blank">{{ person.name }}</a></td>
                 <td>{{ person.telephonnumber }}</td>
                 <td>
                     {{ person.region.city }}/{{ person.region.local_name }}

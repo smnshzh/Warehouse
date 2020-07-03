@@ -812,18 +812,20 @@ from datetime import datetime
 @login_required (login_url='login')
 @can_invoices_report
 def chart(request):
-    order = Order.objects.filter(orderkinde_id=2).order_by("creation_date").first()
-    datelist = pd.date_range (order.creation_date, periods=19).tolist ( )
-    items = OrderItem.objects.filter(order__creation_date__range=[min(datelist),max(datelist)],order__orderkinde_id=2)
+    order = Order.objects.filter (orderkinde_id=2).order_by ("creation_date")
+
+    datelist = pd.date_range ((order.first ( )).creation_date, periods=40).tolist ( )
+    items = OrderItem.objects.filter (order__creation_date__range=[min (datelist), max (datelist)],
+                                      order__orderkinde_id=2)
     date_quantity_dict = {}
     for date in datelist:
-        date_quantity_dict[date.date().strftime('%y-%m-%d')] = 0
+        date_quantity_dict[date.date ( ).strftime ('%y-%m-%d')] = 0
     quantity = 0
     for item in items:
-        quantity+=item.quantity/item.product.box
-        date_quantity_dict[item.order.creation_date.date().strftime('%y-%m-%d')]+=item.quantity/item.product.box
+        quantity += item.quantity / item.product.box
+        date_quantity_dict[item.order.creation_date.date ( ).strftime ('%y-%m-%d')] += item.quantity / item.product.box
 
-    lable = list(date_quantity_dict.keys())
+    lable = list (date_quantity_dict.keys ( ))
     data=list(date_quantity_dict.values())
     context = {
         "data": data,

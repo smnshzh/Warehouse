@@ -1,13 +1,13 @@
 from django import forms
-from .models import *
-from cart.models import Order
 
+from .models import *
 
 
 class accountside_form (forms.ModelForm):
     class Meta:
         model = accountside
         fields = '__all__'
+        exclude = ["slug"]
 
     def clean(self, *args, **kwargs):
         return super (accountside_form, self).clean (*args, **kwargs)

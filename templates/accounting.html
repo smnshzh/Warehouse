@@ -1,16 +1,138 @@
 {% extends 'base.html' %}
+{% block Head %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').dataTable({
+                dom: 'Bfrtip',
+                buttons: [],
+                "bPaginate": false
+
+            });
+        });
+    </script>
+{% endblock %}
 
 {% block content %}
+    <div class="sidenav">
+        <a href=""><h3>Accesses</h3></a>
+        <div style="margin-left: 4%;margin-right: 4%">
+            <table class="table table-hover" id="datatable" style="text-align: center">
+                <thead>
+                <tr>
 
-    <span class="form-span">
+                    <th><h3>Name</h3></th>
+                    <th><h3>Tel</h3></th>
+                    <th><h3>Kinde</h3></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for account in accounts %}
 
-        <form action="{% url 'new_account' %}" class="form-control" method="post">
+                    <tr>
+                        <td><a href="{% url 'edit_account' account.id %}"><h4>{{ account.name }}</h4></a></td>
+                        <td><a href="#"><h4>{{ account.telephonnumber }} </h4></a></td>
+                        <td><p>{% for type in account.kind.all %}
+                            {{ type }}{% endfor %}</p></td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="main">
+       <span class="form-span">
+
+        <form class="form-actions" method="post">
         {{ form }}
             {% csrf_token %}
         <button class="btn btn-dark btn-success">Submit</button>
     </form>
 
     </span>
-{{ a }}
 
+    </div>
+
+
+{% endblock %}
+
+
+{% block js %}
+    <style>
+        /* The sidebar menu */
+        td p {
+            font-size: 15px;
+            color: black;
+            display: block;
+        }
+
+        .sidenav {
+
+
+            height: 100%; /* Full-height: remove this if you want "auto" height */
+            width: 35%; /* Set the width of the sidebar */
+            position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            right: 0;
+            background-color: grey; /* Black */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 20px;
+        }
+
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: black;
+            display: block;
+        }
+
+        .label {
+            alignment: left;
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        /* Style page content */
+        .main {
+            margin-left: 160px; /* Same as the width of the sidebar */
+            padding: 0px 10px;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+                margin-top: 10%;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
 {% endblock %}

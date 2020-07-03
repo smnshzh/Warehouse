@@ -1,0 +1,142 @@
+{% extends 'base.html' %} {% load static %} {% block Head %}
+    <title>{{ Title }}</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').dataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+
+            });
+        });
+    </script>
+{% endblock Head %} {% block content %}
+    <div style="margin-top: 5%;margin-bottom:10%  ">
+        <div class="container">
+            <form action="" method="post">
+                <select name="difinit" id="">
+                    <option value="0">All difinit accounts</option>
+                    {% for difinit in difinits %}
+                        <option value="{{ difinit.id }}" {% if selected == difinit.id %}selected{% endif %}>
+                            {{ difinit.name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Filter">
+                {% csrf_token %}
+            </form>
+
+
+            <table border="2" id="datatable" class="table dataTable" style="text-align: center">
+
+                <thead>
+                <tr>
+
+                    <th scope="col" style="cursor: pointer">Id</th>
+                    <th scope="col" style="cursor: pointer">Date</th>
+                    <th scope="col" style="cursor: pointer">Account Group</th>
+                    <th scope="col" style="cursor: pointer">Total Account</th>
+                    <th scope="col" style="cursor: pointer">Difinit Account</th>
+                    <th scope="col" style="cursor: pointer">debt</th>
+                    <th scope="col" style="cursor: pointer">credit</th>
+
+                    <th scope="col" style="cursor: pointer">Remain</th>
+                    <th>Description</th>
+
+
+                </tr>
+                <tbody style="text-align: center">
+
+                {% for journal in journals %}
+                    <tr>
+
+                        <td title="">{{ journal.number.code }}</td>
+                        <td>{{ journal.number.creation_date.date }}</td>
+                        <td>{{ journal.difinit_account.total_account.account_group.name }}</td>
+                        <td>{{ journal.difinit_account.total_account.name }}</td>
+                        <td>{{ journal.difinit_account }}</td>
+                        <td><span>$</span>
+                            <span id=debt{{ forloop.counter }}>{{ journal.debtor }}</span></td>
+                        <td><span>$</span>
+                            <span id=credit{{ forloop.counter }}>{{ journal.creditor }}</span></td>
+                        <td><span>$</span> <span class="remain"></span></td>
+                        <td>{{ journal.description }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th scope="col" style="cursor: pointer">Id</th>
+                    <th scope="col" style="cursor: pointer">Date</th>
+                    <th scope="col" style="cursor: pointer">Account Group</th>
+                    <th scope="col" style="cursor: pointer">Total Account</th>
+                    <th scope="col" style="cursor: pointer">Difinit Account</th>
+                    <th scope="col" style="cursor: pointer">{{ sum_debt }}</th>
+                    <th scope="col" style="cursor: pointer">{{ sum_credit }}</th>
+
+                    <th scope="col" style="cursor: pointer"></th>
+                    <th>Description</th>
+                </tr>
+                </tfoot>
+
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block js %}
+
+    <script>
+        var remainclass = document.getElementsByClassName("remain");
+        blank_list = [];
+        for (var i = 1; i < remainclass.length + 1; i++) {
+            var output = document.getElementById("debt" + i);
+            var input = document.getElementById("credit" + i);
+
+            console.log(input.innerHTML);
+
+            blank_list.push(parseInt(input.innerHTML) - parseInt(output.innerHTML))
+
+
+        }
+        for (var k = 0; k < blank_list.length; k++) {
+
+            if (k !== 0) {
+
+                blank_list[k] = parseInt(blank_list[k]) + parseInt(blank_list[k - 1])
+
+            }
+
+
+        }
+        console.log(blank_list);
+        for (var l = 0; l < remainclass.length; l++) {
+            if (blank_list[l] < 0) {
+                remainclass[l].style.color = "green";
+                remainclass[l].innerHTML = Math.abs(blank_list[l])
+            } else {
+                remainclass[l].style.color = "red";
+                remainclass[l].innerHTML = Math.abs(blank_list[l])
+            }
+
+
+        }
+
+    </script>
+{% endblock %}

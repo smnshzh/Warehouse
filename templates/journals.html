@@ -26,18 +26,30 @@
     });
 </script>
 {% endblock Head %} {% block content %}
-<div style="margin-top: 5%;margin-bottom:10%  ">
-<div class="container">
+    <div style="margin-top: 5%;margin-bottom:10%  ">
+        <div class="container">
+            <form action="" method="post">
+                <select name="total" id="">
+                    <option value="0">All total accounts</option>
+                    {% for total in totals %}
+                        <option value="{{ total.id }}" {% if selected == total.id %} selected {% endif %}>
+                            {{ total.name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Filter">{% csrf_token %}
 
-                <table border="2" id="datatable" class="table dataTable" style="text-align: center">
 
-                    <thead>
-                        <tr>
+            </form>
 
-                            <th scope="col" style="cursor: pointer">Id</th>
-                            <th scope="col" style="cursor: pointer">Date</th>
-                            <th scope="col" style="cursor: pointer">Account Group</th>
-                            <th scope="col" style="cursor: pointer">Total Account</th>
+            <table border="2" id="datatable" class="table dataTable" style="text-align: center">
+
+                <thead>
+                <tr>
+
+                    <th scope="col" style="cursor: pointer">Id</th>
+                    <th scope="col" style="cursor: pointer">Date</th>
+                    <th scope="col" style="cursor: pointer">Account Group</th>
+                    <th scope="col" style="cursor: pointer">Total Account</th>
                             <th scope="col" style="cursor: pointer">Difinit Account</th>
                             <th scope="col" style="cursor: pointer">Detailed Account</th>
                             <th scope="col" style="cursor: pointer">debt</th>

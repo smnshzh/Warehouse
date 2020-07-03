@@ -217,10 +217,10 @@
                         Reports
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {% if 2 in all_access.orderkind.all %}
+                        {% if "sell" in all_access.orderkind.all %}
                             <a class="dropdown-item" href="{% url 'sell_sended_order_report' %}">Sended Orders </a>
                         {% endif %}
-                        <a class="dropdown-item" href="{% url 'invoices_report' %}">Invoices Report</a>
+                        <a class="dropdown-item" href="{% url 'invoices_report' %}">Sold Report</a>
                         <a class="dropdown-item" href="{% url 'invoices_product_report' %}">Sold Products</a>
                         <a class="dropdown-item" href="{% url 'map' %}">Accounts on Map</a>
                         <a class="dropdown-item" href="{% url 'chart' %}">Chart</a>
@@ -266,7 +266,7 @@
     {% block content %} {% endblock %}
 
 </body>
-<footer class="page-footer font-small blue pt-4" style="border-top: 2px groove gray">
+<footer class=" blue pt-4" style="border-top: 2px groove gray;height: 2px">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
@@ -299,12 +299,7 @@
                     <li>
                         <a href="#!">Link 2</a>
                     </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
+
                 </ul>
 
             </div>
@@ -323,12 +318,7 @@
                     <li>
                         <a href="#!">Link 2</a>
                     </li>
-                    <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
-                    </li>
+
                 </ul>
 
             </div>

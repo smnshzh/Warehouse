@@ -8,19 +8,32 @@ from .forms import *
 
 @login_required (login_url='login')
 @can_make_new_account
-def new_account(request):
+def new_account(request, id=None):
     form = accountside_form (request.POST or None)
+    accounts = accountside.objects.all ( )
+    title = "New Account"
+    if id != None:
+        account = accounts.get (id=id)
+        form = accountside_form (instance=account)
+        title = "Edit Account"
+    if request.method == "POST" and id:
+        account = accounts.get (id=id)
+        form = accountside_form (request.POST, instance=account)
+        form.save ( )
+    if request.method == "POST" and id == None:
 
-    if form.is_valid ( ):
-        new = form.save ( )
+        if form.is_valid ( ):
+            form.save ( )
 
-        return redirect ('new_account')
     context = {
-
+        "title": title,
         'form': form,
+        "accounts": accounts,
+        "id": id
 
     }
     return render (request, 'accounting.html', context)
+
 
 @login_required (login_url='login')
 @can_show_accountside
@@ -52,13 +65,12 @@ def random_maker(request):
 @login_required (login_url='login')
 @can_making_journal
 def making_journal(request):
-    title = "Making Journal"
     form = request.POST
     if request.method == "POST":
         print (form)
 
     context = {
-        "title": title
+        "title": "Making Journal"
     }
 
     return render (request, 'journaling.html', context)
@@ -253,6 +265,7 @@ def making_all_journal(request):
         return redirect ('auto_journal')
 
     context = {
+        "title": "Auto Journal",
         "orders": orders,
         "account": account,
         "title": title
@@ -266,10 +279,22 @@ def show_journals(request):
     journals = Document.objects.all ( )
     sum_debt = sum ([journal.debtor for journal in journals])
     sum_credit = sum ([journal.creditor for journal in journals])
+    totals = TotalAccounts.objects.all ( ).order_by ("name")
+    selected = 0
+    if request.method == "POST":
+        form = dict (request.POST)
+        selected = int (form["total"][0])
+        if selected != 0:
+            total = totals.get (id=selected)
+            journals = journals.filter (difinit_account__total_account=total)
+
     context = {
+        "title": "Journals Report",
         'journals': journals,
         'sum_debt': sum_debt,
         'sum_credit': sum_credit,
+        'selected': selected,
+        "totals": totals
     }
 
     return render (request, 'journals.html', context)
@@ -637,3 +662,28 @@ def my_map(request):
     }
 
     return render (request, "map.html", context)
+
+
+# ================= Reports ===========================================
+
+@login_required (login_url='login')
+@can_show_journals
+def detailed_account_report(request, id):
+    detailed_account = accountside.objects.get (id=id)
+    difinit_accounts = DifinitAccounts.objects.all ( ).order_by ("name")
+    journals = Document.objects.filter (detailed_account=detailed_account)
+    selected = 0
+    if request.method == "POST":
+        form = dict (request.POST)
+        selected = int (form["difinit"][0])
+        if selected != 0:
+            difinit_account = difinit_accounts.get (id=selected)
+            journals = journals.filter (difinit_account=difinit_account)
+
+    context = {
+        "journals": journals,
+        "difinits": difinit_accounts,
+        "selected": selected
+    }
+
+    return render (request, "journalsReports.html", context)
