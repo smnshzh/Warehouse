@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e072efa-3f8f-4e15-a2c2-c593203cfb5a" name="Default Changelist" comment="add warehouse invoices">
-      <change afterPath="$PROJECT_DIR$/templates/journalsReports.html" afterDir="false" />
+    <list default="true" id="5e072efa-3f8f-4e15-a2c2-c593203cfb5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCM/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SCM/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountside/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accountside/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountside/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accountside/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accountside/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accountside/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raisingstock/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/raisingstock/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounsidsedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounsidsedetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounting.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/templates/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/journals.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/journals.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/staticView.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/staticView.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +152,7 @@
       <workItem from="1593589789131" duration="36478000" />
       <workItem from="1593642667548" duration="2425000" />
       <workItem from="1593670734243" duration="14793000" />
-      <workItem from="1593755192356" duration="15913000" />
+      <workItem from="1593755192356" duration="16764000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="change in confirm pay order">
       <created>1592243696229</created>
@@ -276,7 +262,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۱۸" />
       <updated>1593696546155</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL‎۰۰۰۱۹" summary="accounting report updated">
+      <created>1593782133990</created>
+      <option name="number" value="LOCAL‎۰۰۰۱۹" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۱۹" />
+      <updated>1593782133990</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +287,8 @@
     <MESSAGE value="ordering accesses" />
     <MESSAGE value="change in invoicing" />
     <MESSAGE value="add warehouse invoices" />
-    <option name="LAST_COMMIT_MESSAGE" value="add warehouse invoices" />
+    <MESSAGE value="accounting report updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="accounting report updated" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -305,10 +298,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="288" y="21" key="#Deployment/0.0.1366.728@0.0.1366.728" timestamp="1593465611188" />
-    <state x="358" y="0" key="CommitChangelistDialog2" timestamp="1593761920481">
+    <state x="358" y="0" key="CommitChangelistDialog2" timestamp="1593782128180">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="358" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1593761920481" />
+    <state x="358" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1593782128180" />
     <state x="142" y="54" key="DiffContextDialog" timestamp="1593465647792">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
