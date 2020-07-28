@@ -1,14 +1,13 @@
 from rest_framework import viewsets
+
+from SCM.models import *
 from api.serializer import *
-from Shop.models import *
-from cart.models import *
-from accountside.models import *
-from SCM.models import * 
 
 
 class group_serilize_view (viewsets.ModelViewSet):
     queryset = Group.objects.all ( ).order_by ('id')
     serializer_class = GropSerilizer
+
 
 class user_serilize_view (viewsets.ModelViewSet):
     queryset = User.objects.all ( ).order_by ('id')

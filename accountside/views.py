@@ -287,6 +287,8 @@ def show_journals(request):
         if selected != 0:
             total = totals.get (id=selected)
             journals = journals.filter (difinit_account__total_account=total)
+            sum_debt = sum ([journal.debtor for journal in journals])
+            sum_credit = sum ([journal.creditor for journal in journals])
 
     context = {
         "title": "Journals Report",

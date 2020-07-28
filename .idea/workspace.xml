@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e072efa-3f8f-4e15-a2c2-c593203cfb5a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Warehouse/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Warehouse/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accountside/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accountside/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +48,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -152,7 +161,15 @@
       <workItem from="1593589789131" duration="36478000" />
       <workItem from="1593642667548" duration="2425000" />
       <workItem from="1593670734243" duration="14793000" />
-      <workItem from="1593755192356" duration="16764000" />
+      <workItem from="1593755192356" duration="17728000" />
+      <workItem from="1593784749689" duration="1303000" />
+      <workItem from="1593862848286" duration="867000" />
+      <workItem from="1594413503609" duration="196000" />
+      <workItem from="1594461542580" duration="5306000" />
+      <workItem from="1594539712545" duration="575000" />
+      <workItem from="1594652219123" duration="1326000" />
+      <workItem from="1594676899340" duration="63000" />
+      <workItem from="1595962274356" duration="792000" />
     </task>
     <task id="LOCAL‎۰۰۰۰۱" summary="change in confirm pay order">
       <created>1592243696229</created>
@@ -268,7 +285,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۱۹" />
       <updated>1593782133990</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL‎۰۰۰۲۰" summary="accounting report updated">
+      <created>1593783068380</created>
+      <option name="number" value="LOCAL‎۰۰۰۲۰" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۲۰" />
+      <updated>1593783068380</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +299,19 @@
   </component>
   <component name="UpdateCopyrightCheckinHandler">
     <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
@@ -298,18 +334,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="288" y="21" key="#Deployment/0.0.1366.728@0.0.1366.728" timestamp="1593465611188" />
-    <state x="358" y="0" key="CommitChangelistDialog2" timestamp="1593782128180">
+    <state x="358" y="0" key="CommitChangelistDialog2" timestamp="1593783063728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="358" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1593782128180" />
+    <state x="358" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1593783063728" />
     <state x="142" y="54" key="DiffContextDialog" timestamp="1593465647792">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="142" y="54" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1593465647792" />
-    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1592912915835">
+    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1593863853129">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592912915835" />
+    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593863853128" />
+    <state x="544" y="277" key="Github.Dialog.Accounts.Choose" timestamp="1593783652511">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="544" y="277" key="Github.Dialog.Accounts.Choose/0.0.1366.728@0.0.1366.728" timestamp="1593783652511" />
     <state x="537" y="239" key="Github.ShareDialog" timestamp="1592243252368">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
